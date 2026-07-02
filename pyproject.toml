@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "haystack-abstention"
+version = "0.1.0"
+description = "Retrieval-sufficiency gate for Haystack: route a RAG query to an abstain branch when the evidence is too weak, instead of hallucinating."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+authors = [{ name = "Sathvik Lokesh" }]
+keywords = ["haystack", "rag", "abstention", "reliability", "guardrails", "evaluation"]
+dependencies = ["haystack-ai>=2.0"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+examples = ["sentence-transformers>=3.0"]
+
+[project.urls]
+Homepage = "https://github.com/sathvik-lokesh/haystack-abstention"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/haystack_abstention"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
